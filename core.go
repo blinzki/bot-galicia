@@ -10,6 +10,7 @@ import (
 	"os"
 	"time"
 	"strings"
+	"github.com/bot-galicia"
 )
 
 type waHandler struct {
@@ -39,9 +40,9 @@ func (wh *waHandler) HandleTextMessage(message whatsapp.TextMessage) {
 	if message.Text == "12345" {
 		msg := whatsapp.TextMessage{
 			Info: whatsapp.MessageInfo{
-				RemoteJid: "584166208443@s.whatsapp.net",
+				RemoteJid: message.Info.RemoteJid,
 			},
-			Text: "Plomo",
+			Text: saludo(1),
 		}
 
 	msgId, err := wh.c.Send(msg)
