@@ -1,16 +1,21 @@
 package main
 
-// Bot-galicia
+// PoC Galicia
 
 import (
+	// Local packages
+        "github.com/blinzki/botgalicia/srv"
+
+	// External packages
+	"github.com/Baozisoftware/qrcode-terminal-go"
+        "github.com/Rhymen/go-whatsapp"	 
+
+	// Golanf packages
 	"fmt"
 	"log"
 	"os"
 	"time"
 	"strings"
-	"./srv"
-	"github.com/Baozisoftware/qrcode-terminal-go"
-	"github.com/Rhymen/go-whatsapp"
 )
 
 type waHandler struct {
