@@ -9,17 +9,17 @@ go get https://github.com/blinzki/bot-galicia
 cd bot-galicia
 go build
 ```
-## Run 
+### Run 
 
 ```
 ./core
 ```
 
-## Authors
+### Authors
 
 * **Pablo Romero** 
 
-## Licencia
+### Licencia
 
 Este proyecto esta bajo licencia MIT License 
 
