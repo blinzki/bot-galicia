@@ -1,11 +1,14 @@
 package response
 
+import "strings"
+
 func Response(s string) (string, string, string){
+	s = strings.ToLower(s)
 	var s1 string = "" // msg 
 	var s2 string = "" // path image
 	var s3 string = "" // caption image
 	// Menu
-	if s == "init" {
+	if s == "menu" {
 		s1 = 	"*Banco de Galicia* 			\n" + 
 				"------------------- 		\n" +
 			  	"1. Torre Central		\n" +
@@ -13,7 +16,9 @@ func Response(s string) (string, string, string){
 				"3. Casa Matriz			\n" +
 				"4. Corrientes 411		\n" +
 				"5. Peron 456			\n" +
-				"6. Corrientes 409		\n" 
+				"6. Corrientes 409		\n" +
+				"------------------- 		\n" +
+				"Escoja el numero de opcion	\n" 
 		s2 = ""
 		s3 = ""
 	}	
