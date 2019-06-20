@@ -1,0 +1,7 @@
+# Bot PoC Banco de Galicia
+
+## Instalacion ##
+
+```bash
+go get https://github.com/botgalicia
+```
