@@ -26,7 +26,7 @@ $ ./botgalicia
 ### Instrucciones 
 
 * Escanear el codigo QR con whatsapp
-* Enviar: init
+* Enviar: menu 
 * Seleccionar la opcion 1
 
 ### Autor
