@@ -5,19 +5,18 @@ package main
 import (
 	"fmt"
 	"log"
-	"github.com/Baozisoftware/qrcode-terminal-go"
-	"github.com/Rhymen/go-whatsapp"
 	"os"
 	"time"
 	"strings"
-	"github.com/bot-galicia"
+	"./srv"
+	"github.com/Baozisoftware/qrcode-terminal-go"
+	"github.com/Rhymen/go-whatsapp"
 )
 
 type waHandler struct {
 	c *whatsapp.Conn
 }
 
-//HandleError needs to be implemented to be a valid WhatsApp handler
 func (h *waHandler) HandleError(err error) {
 
 	if e, ok := err.(*whatsapp.ErrConnectionFailed); ok {
@@ -34,27 +33,59 @@ func (h *waHandler) HandleError(err error) {
 	}
 }
 
-//Optional to be implemented. Implement HandleXXXMessage for the types you need.
 func (wh *waHandler) HandleTextMessage(message whatsapp.TextMessage) {
-
-	if message.Text == "12345" {
+	
+	txt, path, cpt := response.Response(message.Text)
+	timesend := int64(message.Info.Timestamp)
+	timenow	:= time.Now().Unix() - 10
+	
+	if txt != "" && timesend > timenow {
 		msg := whatsapp.TextMessage{
 			Info: whatsapp.MessageInfo{
 				RemoteJid: message.Info.RemoteJid,
 			},
-			Text: saludo(1),
+			Text: txt,
+		}
+		msgId, err := wh.c.Send(msg)
+		if err != nil {
+			fmt.Fprintf(os.Stderr, "error sending message: %v", err)
+			os.Exit(1)
+		} else {
+			fmt.Println("Message Sent -> ID : "+msgId)
+		}
+	}
+	if path != "" && timesend > timenow{
+		
+		img, err := os.Open(path)
+		if err != nil {
+			fmt.Fprintf(os.Stderr, "error reading file: %v\n", err)
+			os.Exit(1)
+		}
+		fmt.Println(cpt)
+		msg := whatsapp.ImageMessage{
+			Info: whatsapp.MessageInfo{
+				RemoteJid: message.Info.RemoteJid,
+			},
+			Type:    "image/jpeg",
+			Caption: cpt,
+			Content: img,
 		}
 
-	msgId, err := wh.c.Send(msg)
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "error sending message: %v", err)
-		os.Exit(1)
-	} else {
-		fmt.Println("Message Sent -> ID : "+msgId)
-	}
-		//sendImg(*waHandler)
-		//fmt.Println("Pasa")
-	}
+		msgId,err := wh.c.Send(msg)
+		
+		if err != nil {
+			fmt.Fprintf(os.Stderr, "error sending message: %v", err)
+			os.Exit(1)		
+		} else {
+			fmt.Println("Message Sent -> ID : " + msgId)
+			fmt.Println("Enviado a	  -> ID : " + message.Info.RemoteJid)
+			fmt.Print("Hora 		  -> envio : ")
+			fmt.Println(message.Info.Timestamp)
+			fmt.Print("Hora 		  -> actual : ")
+			fmt.Println(time.Now().Unix())			
+			
+		}
+	}	
 	fmt.Printf("%v %v %v %v\n\t%v\n", message.Info.Timestamp, message.Info.Id, message.Info.RemoteJid, message.Info.QuotedMessageID, message.Text)
 }
 
@@ -75,34 +106,6 @@ func (*waHandler) HandleImageMessage(message whatsapp.ImageMessage) {
 	}
 	log.Printf("%v %v\n\timage reveived, saved at:%v\n", message.Info.Timestamp, message.Info.RemoteJid, filename)
 }
-
-
-func sendImg(wac *whatsapp.Conn) {
-
-	img, err := os.Open("image.jpg")
-		if err != nil {
-			fmt.Fprintf(os.Stderr, "error reading file: %v\n", err)
-			os.Exit(1)
-		}
-
-		msg := whatsapp.ImageMessage{
-			Info: whatsapp.MessageInfo{
-				RemoteJid: "number@s.whatsapp.net",
-			},
-			Type:    "image/jpeg",
-			Caption: "Hello Gopher!",
-			Content: img,
-		}
-
-		msgId,err := wac.Send(msg)
-		if err != nil {
-			fmt.Fprintf(os.Stderr, "error sending message: %v", err)
-			os.Exit(1)		
-		} else {
-			fmt.Println("Message Sent -> ID : "+msgId)
-	}
-}
-
 
 func main() {
 	wac, err := whatsapp.NewConn(5 * time.Second)
@@ -125,25 +128,7 @@ func main() {
 	}
 	fmt.Printf("login successful, session: %v\n", session)
 	
-	
-	
 	<-time.After(1000 * time.Second)
-	/*
-		msg := whatsapp.TextMessage{
-			Info: whatsapp.MessageInfo{
-				RemoteJid: "584166208443@s.whatsapp.net",
-			},
-			Text: "Plomo",
-		}
-
-	msgId, err := wac.Send(msg)
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "error sending message: %v", err)
-		os.Exit(1)
-	} else {
-		fmt.Println("Message Sent -> ID : "+msgId)
-	}
-*/
 
 }
 

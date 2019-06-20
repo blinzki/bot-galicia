@@ -5,8 +5,8 @@ Bot Whatsapp BIM - Building Information Managment
 ### Instalacion 
 
 ```
-go get https://github.com/blinzki/bot-galicia
-cd bot-galicia
+go get https://github.com/blinzki/botgalicia
+cd botgalicia
 go build
 ```
 ### Ejecutar 
