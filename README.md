@@ -2,14 +2,14 @@
 
 Bot Whatsapp BIM - Building Information Managment
 
-### Installing
+### Instalacion 
 
 ```
 go get https://github.com/blinzki/bot-galicia
 cd bot-galicia
 go build
 ```
-## Test 
+## Run 
 
 ```
 ./core
@@ -19,7 +19,7 @@ go build
 
 * **Pablo Romero** 
 
-## License
+## Licencia
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+Este proyecto esta bajo licencia MIT License 
 
