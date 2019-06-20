@@ -25,8 +25,8 @@ $ ./botgalicia
 ```
 ### Instrucciones 
 ```
-1. Escanear el codigo QR con whatsapp
-2. Enviar desde wa la palabra: menu 
+1. Escanear el codigo QR para iniciar sesion con whatsapp
+2. Enviar la palabra: menu 
 3. Seleccionar una opcion 
 ```
 ### Autor
