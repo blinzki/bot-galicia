@@ -5,11 +5,9 @@ package main
 import (
 	// Local packages
         "github.com/blinzki/botgalicia/srv"
-
 	// External packages
 	"github.com/Baozisoftware/qrcode-terminal-go"
         "github.com/Rhymen/go-whatsapp"	 
-
 	// Golanf packages
 	"fmt"
 	"log"
@@ -19,6 +17,7 @@ import (
 )
 
 type waHandler struct {
+
 	c *whatsapp.Conn
 }
 
@@ -43,7 +42,6 @@ func (wh *waHandler) HandleTextMessage(message whatsapp.TextMessage) {
 	txt, path, cpt := response.Response(message.Text)
 	timesend := int64(message.Info.Timestamp)
 	timenow	:= time.Now().Unix() - 10
-	
 	if txt != "" && timesend > timenow {
 		msg := whatsapp.TextMessage{
 			Info: whatsapp.MessageInfo{
@@ -60,7 +58,6 @@ func (wh *waHandler) HandleTextMessage(message whatsapp.TextMessage) {
 		}
 	}
 	if path != "" && timesend > timenow{
-		
 		img, err := os.Open(path)
 		if err != nil {
 			fmt.Fprintf(os.Stderr, "error reading file: %v\n", err)
@@ -75,26 +72,24 @@ func (wh *waHandler) HandleTextMessage(message whatsapp.TextMessage) {
 			Caption: cpt,
 			Content: img,
 		}
-
 		msgId,err := wh.c.Send(msg)
-		
 		if err != nil {
 			fmt.Fprintf(os.Stderr, "error sending message: %v", err)
 			os.Exit(1)		
 		} else {
 			fmt.Println("Message Sent -> ID : " + msgId)
-			fmt.Println("Enviado a	  -> ID : " + message.Info.RemoteJid)
-			fmt.Print("Hora 		  -> envio : ")
+			fmt.Println("Send to	  -> ID : " + message.Info.RemoteJid)
+			fmt.Print("Send time 		  -> : ")
 			fmt.Println(message.Info.Timestamp)
-			fmt.Print("Hora 		  -> actual : ")
+			fmt.Print("Time now 		  -> : ")
 			fmt.Println(time.Now().Unix())			
-			
 		}
 	}	
 	fmt.Printf("%v %v %v %v\n\t%v\n", message.Info.Timestamp, message.Info.Id, message.Info.RemoteJid, message.Info.QuotedMessageID, message.Text)
 }
 
 func (*waHandler) HandleImageMessage(message whatsapp.ImageMessage) {
+
 	data, err := message.Download()
 	if err != nil {
 		return
@@ -113,27 +108,22 @@ func (*waHandler) HandleImageMessage(message whatsapp.ImageMessage) {
 }
 
 func main() {
+
 	wac, err := whatsapp.NewConn(5 * time.Second)
 	if err != nil {
 		panic(err)
 	}
-
-	//Add handler
 	wac.AddHandler(&waHandler{wac})
-	
 	qr := make(chan string)
 	go func() {
 		terminal := qrcodeTerminal.New()
 		terminal.Get(<-qr).Print()
 	}()
-
 	session, err := wac.Login(qr)
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "error during login: %v\n", err)
 	}
 	fmt.Printf("login successful, session: %v\n", session)
-	
 	<-time.After(1000 * time.Second)
-
 }
 
