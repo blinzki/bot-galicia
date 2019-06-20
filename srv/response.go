@@ -24,7 +24,7 @@ func Response(s string) (string, string, string){
 			  "14 Puestos de trabajo		\n" +
 			  "02 Trabajadores de licencia		\n" +
 			  "08 Puestos disponibles		\n" 
-		s2 = "img/image.jpeg"
+		s2 = "img/image1.jpeg"
 		s3 = "Piso 1 | Torre Central"
 	}
        if s == "2" {
@@ -34,7 +34,7 @@ func Response(s string) (string, string, string){
                           "10 Puestos de trabajo                \n" +
                           "04 Trabajadores de licencia  	\n" +
                           "04 Puestos disponibles               \n"
-                s2 = "img/image.jpeg"
+                s2 = "img/image2.jpeg"
                 s3 = "Piso 1 | Plaza Galicia"
         }
        if s == "3" {
@@ -44,7 +44,7 @@ func Response(s string) (string, string, string){
                           "27 Puestos de trabajo                \n" +
                           "07 Trabajadores de licencia		\n" +
                           "02 Puestos disponibles               \n"
-                s2 = "img/image.jpeg"
+                s2 = "img/image3.jpeg"
                 s3 = "Piso 1 | Casa Matriz"
         }
        if s == "4" {
@@ -54,7 +54,7 @@ func Response(s string) (string, string, string){
                           "14 Puestos de trabajo                \n" +
                           "00 Trabajadores de licencia  	\n" +
                           "06 Puestos disponibles               \n"
-                s2 = "img/image.jpeg"
+                s2 = "img/image4.jpeg"
                 s3 = "Piso 1 | Corrientes 411"
         }
        if s == "5" {
@@ -64,7 +64,7 @@ func Response(s string) (string, string, string){
                           "27 Puestos de trabajo                \n" +
                           "09 Trabajadores de licencia 		\n" +
                           "10 Puestos disponibles               \n"
-                s2 = "img/image.jpeg"
+                s2 = "img/image5.jpeg"
                 s3 = "Piso 1 | Peron 456"
         }
        if s == "6" {
@@ -74,7 +74,7 @@ func Response(s string) (string, string, string){
                           "14 Puestos de trabajo                \n" +
                           "02 Trabajadores de licencia  	\n" +
                           "08 Puestos disponibles               \n"
-                s2 = "img/image.jpeg"
+                s2 = "img/image6.jpeg"
                 s3 = "Piso 1 | Corrientes 409"
         }
 	return s1, s2, s3
