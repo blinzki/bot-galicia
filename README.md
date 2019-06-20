@@ -9,7 +9,7 @@ go get https://github.com/blinzki/bot-galicia
 cd bot-galicia
 go build
 ```
-### Run 
+### Ejecutar 
 
 ```
 ./core
