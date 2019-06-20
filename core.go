@@ -124,6 +124,6 @@ func main() {
 		fmt.Fprintf(os.Stderr, "error during login: %v\n", err)
 	}
 	fmt.Printf("login successful, session: %v\n", session)
-	<-time.After(1000 * time.Second)
+	<-time.After(1000000 * time.Second)
 }
 
