@@ -3,12 +3,12 @@ package main
 // PoC Galicia
 
 import (
-	// Local packages
+	//Local packages
         "github.com/blinzki/botgalicia/srv"
-	// External packages
+	//External packages
 	"github.com/Baozisoftware/qrcode-terminal-go"
         "github.com/Rhymen/go-whatsapp"	 
-	// Golanf packages
+	//Golanf packages
 	"fmt"
 	"log"
 	"os"
