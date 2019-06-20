@@ -25,7 +25,7 @@ go build
 ```
 ### Instrucciones 
 
-Escanear el codigo QR con whatsapp
+* Escanear el codigo QR con whatsapp
 
 ### Authors
 
@@ -33,5 +33,5 @@ Escanear el codigo QR con whatsapp
 
 ### Licencia
 
-Este proyecto esta bajo licencia MIT License 
+MIT 
 
