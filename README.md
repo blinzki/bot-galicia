@@ -2,18 +2,30 @@
 
 Bot Whatsapp BIM - Building Information Managment
 
+
+
+### Dependencias 
+
+```
+go get github.com/Baozisoftware/qrcode-terminal-go
+go get github.com/Rhymen/go-whatsapp
+```
+
 ### Instalacion 
 
 ```
-go get https://github.com/blinzki/botgalicia
-cd botgalicia
+go get github.com/blinzki/botgalicia
+cd ~/go/src/github.com/blinzki/botgalicia/
 go build
 ```
-### Ejecutar 
+### Ejecucion 
 
 ```
 ./core
 ```
+### Instrucciones 
+
+Escanear el codigo QR con whatsapp
 
 ### Authors
 
