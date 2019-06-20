@@ -3,7 +3,7 @@ package response
 func Response(s string) (string, string, string){
 	var s1 string = "" // msg 
 	var s2 string = "" // path image
-	var s3 string = "" // Caption image
+	var s3 string = "" // caption image
 	// Menu
 	if s == "init" {
 		s1 = 	"*Banco de Galicia* 			\n" + 
