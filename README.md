@@ -21,7 +21,7 @@ go build
 ### Ejecucion 
 
 ```
-./core
+./botgalicia
 ```
 ### Instrucciones 
 
