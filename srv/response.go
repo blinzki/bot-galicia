@@ -9,7 +9,7 @@ func Response(s string) (string, string, string){
 	var s3 string = "" // caption image
 	// Menu
 	if s == "menu" {
-		s1 = 	"*Banco de Galicia* 			\n" + 
+		s1 = 	"*Banco Galicia* 			\n" + 
 				"------------------- 		\n" +
 			  	"1. Torre Central		\n" +
 				"2. Plaza Galicia		\n" +
@@ -18,7 +18,7 @@ func Response(s string) (string, string, string){
 				"5. Peron 456			\n" +
 				"6. Corrientes 409		\n" +
 				"------------------- 		\n" +
-				"Escoja el numero de opcion	\n" 
+				"Escoja una opcion		\n" 
 		s2 = ""
 		s3 = ""
 	}	
