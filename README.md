@@ -24,11 +24,11 @@ $ go build
 $ ./botgalicia
 ```
 ### Instrucciones 
-
-* Escanear el codigo QR con whatsapp
-* Enviar: menu 
-* Seleccionar la opcion 1
-
+```
+1. Escanear el codigo QR con whatsapp
+2. Enviar desde wa la palabra: menu 
+3. Seleccionar una opcion 
+```
 ### Autor
 
 * **Pablo Romero** 
