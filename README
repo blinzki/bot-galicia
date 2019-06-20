@@ -1,8 +1,5 @@
+# Project Title
 
-## Bot PoC Banco de Galicia
+One Paragraph of project description goes here
 
-## Instalacion ##
-
-```bash
-go get https://github.com/botgalicia
-```
+## Getting Started
