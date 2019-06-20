@@ -1,6 +1,6 @@
 # PoC Banco de Galicia 
 
-Bot Whatsapp BIM - Building Information Managment
+Bot Whatsapp BIM - Building Information Modeling
 
 
 
@@ -29,7 +29,7 @@ $ ./botgalicia
 * Enviar: init
 * Seleccionar la opcion 1
 
-### Authors
+### Autor
 
 * **Pablo Romero** 
 
