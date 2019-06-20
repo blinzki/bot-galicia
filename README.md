@@ -26,6 +26,8 @@ go build
 ### Instrucciones 
 
 * Escanear el codigo QR con whatsapp
+* Enviar: init
+* Seleccionar la opcion 1
 
 ### Authors
 
