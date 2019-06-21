@@ -28,9 +28,9 @@ func Response(s string) (string, string, string){
 		s3 = "*Piso 1 | Torre Central* 			\n" + 
 			  "------------------- 			\n" + 
 			  "02 Puestos gerenciales		\n" + 
-			  "14 Puestos de trabajo		\n" +
+			  "20 Puestos de trabajo		\n" +
 			  "02 Trabajadores de licencia		\n" +
-			  "08 Puestos disponibles		\n" 
+			  "02 Puestos disponibles		\n" 
 	}
        if s == "2" {
 		s1 = ""
